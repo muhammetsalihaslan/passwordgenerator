@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 const Home = () => {
-  const [long, setLong] = useState(0);
+  const [long, setLong] = useState(20);
 
   const handleChange = (e) => {
     setLong(e.target.value);
@@ -31,22 +31,22 @@ const Home = () => {
           />
         </div>
         <div className="p-2">
-          <div className="flex gap-x-2 ">
+          <label className="flex gap-x-2 ">
             <input type="checkbox" />
-            <p>Include Uppercase Letters</p>
-          </div>
-          <div className="flex gap-x-2 ">
+            Include Uppercase Letters
+          </label>
+          <label className="flex gap-x-2 ">
             <input type="checkbox" />
-            <p>Include Lowercase Letters</p>
-          </div>
-          <div className="flex gap-x-2 ">
+            Include Lowercase Letters
+          </label>
+          <label className="flex gap-x-2 ">
             <input type="checkbox" />
-            <p>Include Numbers</p>
-          </div>
-          <div className="flex gap-x-2 ">
+            Include Numbers
+          </label>
+          <label className="flex gap-x-2 ">
             <input type="checkbox" />
-            <p>Include Symbols</p>
-          </div>
+            Include Symbols
+          </label>
         </div>
         <div className="border rounded-md flex w-[435px] h-[70px] items-center justify-between ms-2 mt-5 ">
           <div className="p-2">STRENGTH</div>
