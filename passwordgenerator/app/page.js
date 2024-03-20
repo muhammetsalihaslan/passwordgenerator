@@ -1,6 +1,12 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 
 const Home = () => {
+  const [long, setLong] = useState(0);
+
+  const handleChange = (e) => {
+    setLong(e.target.value);
+  };
   return (
     <div className="bg-green-500 flex flex-col items-center mt-[5rem] gap-y-6 ">
       <div>Password Generator</div>
@@ -11,9 +17,19 @@ const Home = () => {
       <div className="border rounded-md w-[450px] h-[450px] ">
         <div className="flex justify-between p-2">
           <div>Character Length</div>
-          <div>number</div>
+          <div>{long}</div>
         </div>
-        <div className="p-2">uzunluk belirleme</div>
+        <div className="p-2">
+          <input
+            type="range"
+            min={0}
+            max={20}
+            value={long}
+            onChange={handleChange}
+            step={1}
+            className=""
+          />
+        </div>
         <div className="p-2">
           <div className="flex gap-x-2 ">
             <input type="checkbox" />
