@@ -3,10 +3,10 @@ import React, { useState } from "react";
 
 const Home = () => {
   const [long, setLong] = useState(0);
-  const [includeUppercase, setIncludeUppercase] = useState(true);
-  const [includeLowercase, setIncludeLowercase] = useState(true);
-  const [includeNumbers, setIncludeNumbers] = useState(true);
-  const [includeSpecialChars, setIncludeSpecialChars] = useState(true);
+  const [includeUppercase, setIncludeUppercase] = useState(false);
+  const [includeLowercase, setIncludeLowercase] = useState(false);
+  const [includeNumbers, setIncludeNumbers] = useState(false);
+  const [includeSpecialChars, setIncludeSpecialChars] = useState(false);
   const [generatedPassword, setGeneratedPassword] = useState("");
 
   const handleChange = (e) => {
@@ -59,19 +59,35 @@ const Home = () => {
         </div>
         <div className="p-2">
           <label className="flex gap-x-2 ">
-            <input type="checkbox" checked={includeUppercase} />
+            <input
+              type="checkbox"
+              checked={includeUppercase}
+              onChange={(e) => setIncludeUppercase(e.target.checked)}
+            />
             Include Uppercase Letters
           </label>
           <label className="flex gap-x-2 ">
-            <input type="checkbox" checked={includeLowercase} />
+            <input
+              type="checkbox"
+              checked={includeLowercase}
+              onChange={(e) => setIncludeLowercase(e.target.checked)}
+            />
             Include Lowercase Letters
           </label>
           <label className="flex gap-x-2 ">
-            <input type="checkbox" checked={includeNumbers} />
+            <input
+              type="checkbox"
+              checked={includeNumbers}
+              onChange={(e) => setIncludeNumbers(e.target.checked)}
+            />
             Include Numbers
           </label>
           <label className="flex gap-x-2 ">
-            <input type="checkbox" checked={includeSpecialChars} />
+            <input
+              type="checkbox"
+              checked={includeSpecialChars}
+              onChange={(e) => setIncludeSpecialChars(e.target.checked)}
+            />
             Include Symbols
           </label>
         </div>
