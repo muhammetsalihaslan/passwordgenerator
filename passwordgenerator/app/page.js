@@ -8,12 +8,22 @@ const Home = () => {
   const [includeNumbers, setIncludeNumbers] = useState(false);
   const [includeSpecialChars, setIncludeSpecialChars] = useState(false);
   const [generatedPassword, setGeneratedPassword] = useState("");
+  const [error, setError] = useState(false);
 
   const handleChange = (e) => {
     setLong(e.target.value);
   };
 
   const genaratePasswords = () => {
+    if (
+      includeLowercase &&
+      includeUppercase &&
+      includeNumbers &&
+      includeSpecialChars
+    ) {
+      setError(true);
+    }
+
     const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
     const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const numberChars = "0123456789";
@@ -101,6 +111,7 @@ const Home = () => {
           </div>
           <div>➡️</div>
         </div>
+        {error && <div>Please select at least one input</div>}
       </div>
     </div>
   );
