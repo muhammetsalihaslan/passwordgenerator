@@ -16,10 +16,10 @@ const Home = () => {
 
   const genaratePasswords = () => {
     if (
-      includeLowercase &&
-      includeUppercase &&
-      includeNumbers &&
-      includeSpecialChars
+      !includeLowercase &&
+      !includeUppercase &&
+      !includeNumbers &&
+      !includeSpecialChars
     ) {
       setError(true);
     }
@@ -40,7 +40,6 @@ const Home = () => {
       const randomIndex = Math.floor(Math.random() * validChars.length);
       password += validChars[randomIndex];
     }
-
     setGeneratedPassword(password);
   };
 
@@ -48,7 +47,7 @@ const Home = () => {
     <div className="bg-green-500 flex flex-col items-center mt-[5rem] gap-y-6 ">
       <div>Password Generator</div>
       <div className="border rounded-md flex w-[450px] h-[50px] items-center justify-between ">
-        <div className="p-2">{generatedPassword}</div>
+        <div className="p-2">{error ? "" : generatedPassword}</div>
         <button className="p-2">Copy</button>
       </div>
       <div className="border rounded-md w-[450px] h-[450px] ">
